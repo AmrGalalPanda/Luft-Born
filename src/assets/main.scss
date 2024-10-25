@@ -1,0 +1,431 @@
+@font-face {
+  font-family: "Rubik-Light";
+  src: url("../fonts/Rubik-Light.eot");
+  src: url("../fonts/Rubik-Light.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/Rubik-Light.woff2") format("woff2"),
+    url("../fonts/Rubik-Light.woff") format("woff"),
+    url("../fonts/Rubik-Light.svg#Rubik-Light") format("svg");
+  font-weight: 300 !important;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: url("../fonts/Rubik-Black.eot");
+  src: url("../fonts/Rubik-Black.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/Rubik-Black.woff2") format("woff2"),
+    url("../fonts/Rubik-Black.woff") format("woff"),
+    url("../fonts/Rubik-Black.svg#Rubik-Black") format("svg");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: url("../fonts/Rubik-Bold.eot");
+  src: url("../fonts/Rubik-Bold.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/Rubik-Bold.woff2") format("woff2"),
+    url("../fonts/Rubik-Bold.woff") format("woff"),
+    url("../fonts/Rubik-Bold.svg#Rubik-Bold") format("svg");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: url("../fonts/Rubik-ExtraBold.eot");
+  src: url("../fonts/Rubik-ExtraBold.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/Rubik-ExtraBold.woff2") format("woff2"),
+    url("../fonts/Rubik-ExtraBold.woff") format("woff"),
+    url("../fonts/Rubik-ExtraBold.svg#Rubik-ExtraBold") format("svg");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Rubik-Medium";
+  src: url("../fonts/Rubik-Medium.eot");
+  src: url("../fonts/Rubik-Medium.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/Rubik-Medium.woff2") format("woff2"),
+    url("../fonts/Rubik-Medium.woff") format("woff"),
+    url("../fonts/Rubik-Medium.svg#Rubik-Medium") format("svg");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Rubik-SemiBold";
+  src: url("../fonts/Rubik-SemiBold.eot");
+  src: url("../fonts/Rubik-SemiBold.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/Rubik-SemiBold.woff2") format("woff2"),
+    url("../fonts/Rubik-SemiBold.woff") format("woff"),
+    url("../fonts/Rubik-SemiBold.svg#Rubik-SemiBold") format("svg");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Rubik";
+  src: url("../fonts/Rubik-Regular.eot");
+  src: url("../fonts/Rubik-Regular.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/Rubik-Regular.woff2") format("woff2"),
+    url("../fonts/Rubik-Regular.woff") format("woff"),
+    url("../fonts/Rubik-Regular.svg#Rubik-Regular") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+$font-Light: "Rubik-Light";
+$font-Medium: "Rubik-Medium";
+$font-SemiBold: "Rubik-SemiBold";
+
+@mixin font-style($family, $size, $lineHeight, $overflow, $color: null) {
+  @if $family == "l" or $family == "l" {
+    font-family: $font-Light;
+  } @else if $family == "m" or $family == "M" {
+    font-family: $font-Medium;
+  } @else if $family == "sb" or $family == "SB" {
+    font-family: $font-SemiBold;
+  } @else {
+    font-family: $font-SemiBold;
+  }
+
+  font-size: $size;
+  line-height: $lineHeight;
+  overflow: $overflow;
+  color: $color;
+}
+ $font-size: 15px;
+$bg-main-color: #0E1323;
+   $color-orange: #FF8B64;
+  $color-lightblue: #55C2E6;
+  $color-lightpink: #FF5E7D;
+  $color-lightgreen: #4BCF82;
+  $color-lightpurple: #7335D2;
+  $color-darkblue: #1C204B;
+  $color-white: #ffffff;
+  $color-darkgray: #2c3e50;
+  $color-muted: #BBC0FF; 
+  $color-blue: #5747EA; 
+ $sides: y, x, l, r, t, b;
+$pixels:0,6,8, 9, 10, 12, 13, 16, 17, 20, 21,24,25, 26, 30, 32, 33,35, 42, 38;
+$player-sizes: lg, sm;
+$img-max-width: (
+  img-16:16%,
+  img-20:19%,
+  img-30:30%,
+  img-42: 42%,
+  img-49: 49%,
+  img-54: 54%,
+  img-66: 66%,
+  img-71  : 71%,
+  img-70: 70%,
+  img-82: 84%,
+  img-90: 90%,
+  img-100: 100%,
+  img-865:865px,
+  img-771:771px,
+  img-692:692px,
+  img-644:644px,
+  img-423:423px,
+  img-383:383px,
+  img-378:378px,
+  img-330:330px,
+  img-316:316px,
+  img-275:275px,
+  img-151: 151px,
+  img-95: 95px
+);
+$breakpoints: (
+  /*   xs: 576,*/
+  sm: 576,
+  md: 768,
+  lg: 992,
+  xl: 1200,
+  bs: 1360,
+  xxl: 1400,
+  xxxl: 1686,
+  ds: 1686,
+);
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background: $color-darkblue;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $color-white;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: $color-darkblue;
+}
+@each $screen,
+$breakpoint in $breakpoints {
+  @if ($breakpoint ==576) {
+
+    @each $class,
+    $size in $img-max-width {
+      .#{$class} {
+        max-width: $size;
+      }
+    }
+
+    @each $space,
+    $abbr in (margin: m, padding: p) {
+      @each $pixel in $pixels {
+        @each $side in $sides {
+          @if ($side ==x) {
+            .#{$abbr}#{$side}-#{$pixel} {
+              #{$space}-left: ($pixel) + px !important;
+              #{$space}-right: ($pixel) + px !important;
+            }
+          }
+
+          @if ($side ==y) {
+            .#{$abbr}#{$side}-#{$pixel} {
+              #{$space}-top: ($pixel) + px !important;
+              #{$space}-bottom: ($pixel) + px !important;
+            }
+          }
+
+          @if ($side ==t) {
+            .#{$abbr}#{$side}-#{$pixel} {
+              #{$space}-top: ($pixel) + px !important;
+            }
+          }
+
+          @if ($side ==b) {
+            .#{$abbr}#{$side}-#{$pixel} {
+              #{$space}-bottom: ($pixel) + px !important;
+            }
+          }
+
+          @if ($side ==l) {
+            .#{$abbr}#{$side}-#{$pixel} {
+              #{$space}-left: ($pixel) + px !important;
+            }
+          }
+
+          @if ($side ==r) {
+            .#{$abbr}#{$side}-#{$pixel} {
+              #{$space}-right: ($pixel) + px !important;
+            }
+          }
+        }
+      }
+    }
+
+    @media screen and (min-width: $breakpoint+px) {
+
+      @each $class,
+      $size in $img-max-width {
+        .#{$class}-#{$screen} {
+          max-width: $size;
+        }
+      }
+
+      @each $space,
+      $abbr in (margin: m, padding: p) {
+        @each $pixel in $pixels {
+          @each $side in $sides {
+            @if ($side ==x) {
+              .#{$abbr}#{$side}-#{$screen}-#{$pixel} {
+                #{$space}-left: ($pixel) + px !important;
+                #{$space}-right: ($pixel) + px !important;
+              }
+            }
+
+            @if ($side ==y) {
+              .#{$abbr}#{$side}-#{$screen}-#{$pixel} {
+                #{$space}-top: ($pixel) + px !important;
+                #{$space}-bottom: ($pixel) + px !important;
+              }
+            }
+
+            @if ($side ==t) {
+              .#{$abbr}#{$side}-#{$screen}-#{$pixel} {
+                #{$space}-top: ($pixel) + px !important;
+              }
+            }
+
+            @if ($side ==b) {
+              .#{$abbr}#{$side}-#{$screen}-#{$pixel} {
+                #{$space}-bottom: ($pixel) + px !important;
+              }
+            }
+
+            @if ($side ==l) {
+              .#{$abbr}#{$side}-#{$screen}-#{$pixel} {
+                #{$space}-left: ($pixel) + px !important;
+              }
+            }
+
+            @if ($side ==r) {
+              .#{$abbr}#{$side}-#{$screen}-#{$pixel} {
+                #{$space}-right: ($pixel) + px !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @else {
+    @media screen and (min-width: $breakpoint+px) {
+
+      @each $class,
+      $size in $img-max-width {
+        .#{$class}-#{$screen} {
+          max-width: $size;
+        }
+      }
+
+      @each $space,
+      $abbr in (margin: m, padding: p) {
+        @each $pixel in $pixels {
+          @each $side in $sides {
+            @if ($side ==x) {
+              .#{$abbr}#{$side}-#{$screen}-#{$pixel} {
+                #{$space}-left: ($pixel) + px !important;
+                #{$space}-right: ($pixel) + px !important;
+              }
+            }
+
+            @if ($side ==y) {
+              .#{$abbr}#{$side}-#{$screen}-#{$pixel} {
+                #{$space}-top: ($pixel) + px !important;
+                #{$space}-bottom: ($pixel) + px !important;
+              }
+            }
+
+            @if ($side ==t) {
+              .#{$abbr}#{$side}-#{$screen}-#{$pixel} {
+                #{$space}-top: ($pixel) + px !important;
+              }
+            }
+
+            @if ($side ==b) {
+              .#{$abbr}#{$side}-#{$screen}-#{$pixel} {
+                #{$space}-bottom: ($pixel) + px !important;
+              }
+            }
+
+            @if ($side ==l) {
+              .#{$abbr}#{$side}-#{$screen}-#{$pixel} {
+                #{$space}-left: ($pixel) + px !important;
+              }
+            }
+
+            @if ($side ==r) {
+              .#{$abbr}#{$side}-#{$screen}-#{$pixel} {
+                #{$space}-right: ($pixel) + px !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+a ,li{
+  text-decoration: none;
+  list-style: none;
+  padding: 0;
+  color: $color-white;
+  &:hover {
+    color: unset !important;
+  }
+}
+ul{
+  padding: 0;
+}
+.d-block{
+  display: block;
+}
+.d-flex{
+  display: flex;
+  flex-wrap: wrap;
+}
+.align-center{
+  align-items: center;
+}
+.justify-between{
+  justify-content: space-between;
+}
+.justify-around{
+  justify-content: space-around;
+}
+.text-center{
+  text-align: center;
+}
+.m-md-auto
+{
+  margin: auto;
+}
+.m-auto{
+  margin: auto;
+}
+.w-100{
+  width: 100%;
+}
+
+.card {
+  background-color: $color-darkblue;
+  color: $color-white !important;
+
+}
+body{
+font-family: "Rubik-Light";
+}
+.font-12-mid{
+  @include font-style("l", 12px, 15px, hidden, $color-muted);
+height:31px;
+font-weight: 300
+}
+.font-12-l{
+  @include font-style("l",12px, 15px, hidden, $color-white);
+ 
+}
+.font-15-mid{
+  @include font-style("l", 15px, 15px, visible, $color-white);
+
+}
+.font-18-mid{
+  @include font-style("l", 18px, 18px, visible, $color-white);
+
+}
+.font-39-mid{
+  @include font-style("l", 39px, 40px, hidden, $color-white);
+  height: 3rem;
+
+}
+.font-40-l{
+  @include font-style("l", 40px, 42px, visible, $color-white);
+  font-weight: 300 !important;
+
+}
+.profile {
+  background-color: $color-blue;
+}
+@media screen and (max-width:765px){
+
+.font-40-l{
+font-size: 28px;
+}
+.m-md-auto
+{
+  margin: 0;
+
+}
+}
