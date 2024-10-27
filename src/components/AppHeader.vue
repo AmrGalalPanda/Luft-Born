@@ -18,20 +18,20 @@ export default {
   name: 'AppHeader',
   data() {
     return {
-      activeLink: '' // Stores the currently active link
+      activeLink: ''
     };
   },
   methods: {
     setActive(link) {
-      this.activeLink = link; // Sets the clicked link as active
+      this.activeLink = link;
     },
     isActive(link) {
-      return this.activeLink === link; // Checks if the link is active
+      return this.activeLink === link;
     }
   },
   mounted() {
     // Set default active link based on current URL
-    this.activeLink = window.location.hash || '/home';
+    this.activeLink = window.location.hash || '/AppProducts';
   }
 }
 </script>
@@ -80,7 +80,7 @@ export default {
       }
 
       &:hover,
-      &.active { /* Apply hover effect to the active class as well */
+      &.active {  
         color: #ff9900;
       }
 

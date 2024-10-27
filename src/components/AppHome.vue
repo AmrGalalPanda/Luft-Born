@@ -1,13 +1,21 @@
+// AppHome.vue
 <script>
 import axios from "axios";
+import CardDetails from "./CardDetails.vue";
 
 export default {
   name: "AppHome",
+  components: {
+    CardDetails,
+  },
   data() {
     return {
       products: [],
       groupedProducts: {},
       colors: ["#FF8B64", "#55C2E6", "#FF5E7D", "#4BCF82", "#7335D2", "#5747EA"],
+      activeDropdown: null,
+      showDetailsModal: false,
+      selectedProduct: null,
     };
   },
   mounted() {
@@ -37,6 +45,14 @@ export default {
       const index = Object.keys(this.groupedProducts).indexOf(category);
       return this.colors[index % this.colors.length];
     },
+    toggleDropdown(index) {
+      this.activeDropdown = this.activeDropdown === index ? null : index;
+    },
+    showDetails(product) {
+      this.selectedProduct = product;
+      this.showDetailsModal = true;
+      this.activeDropdown = null;
+    },
   },
 };
 </script>
@@ -55,21 +71,26 @@ export default {
           </div>
           <div class="product-grid">
             <div
-              v-for="product in categoryProducts"
+              v-for="(product, index) in categoryProducts"
               :key="product.id"
               class="product-card"
               :style="{ backgroundColor: getCategoryColor(category), backgroundImage: `url(${product.image})` }"
             >
-              <div class="card-header">
-                <p>{{ product.category }}</p>
-                <span class="menu-icon">...</span>
-              </div>
-              <div class="card-body">
-                <h2 class="price">{{ product.price }}$</h2>
-                <p class="description">{{ product.title }}</p>
-                <div class="card-footer">
-                  <span class="stock">InStore {{ product.rating.count }}</span>
-                  <span class="rating">Rating {{ product.rating.rate }}</span>
+              <div class="layer-bg">
+                <div class="card-header">
+                  <p>{{ product.category }}</p>
+                  <span class="menu-icon" @click="toggleDropdown(index)">...</span>
+                  <div v-if="activeDropdown === index" class="dropdown">
+                    <a class="show" href="#" @click.prevent="showDetails(product)">Show Details</a>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <h2 class="price">{{ product.price }}$</h2>
+                  <p class="description">{{ product.title }}</p>
+                  <div class="card-footer">
+                    <span class="stock">InStore {{ product.rating.count }}</span>
+                    <span class="rating">Rating {{ product.rating.rate }}</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -77,11 +98,12 @@ export default {
         </div>
       </div>
     </div>
-    
+    <CardDetails v-if="showDetailsModal" :product="selectedProduct" @close="showDetailsModal = false" />
   </div>
 </template>
 
 <style lang="scss" scoped>
+/* CSS from the original example and additions to match the second code's style */
 .main-block {
   font-family: "Rubik-Light";
   max-width: 1200px;
@@ -103,7 +125,6 @@ export default {
 
 .product-category {
   margin-bottom: 40px;
-
   .categoryname {
     font-size: 1.5rem;
     color: white;
@@ -129,11 +150,13 @@ export default {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 350px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
+  .layer-bg {
+    background-color: #0f172a61;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
   &:hover {
     transform: translateY(-10px);
   }
@@ -144,6 +167,31 @@ export default {
   display: flex;
   justify-content: space-between;
   font-size: 14px;
+  position: relative;
+}
+
+.menu-icon {
+  cursor: pointer;
+}
+
+.dropdown {
+  position: absolute;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  padding: 10px;
+  margin-top: 5px;
+  top: 55%;
+  right: 4%;
+}
+
+.dropdown a {
+  text-decoration: none;
+  color: #333;
+}
+
+.show:hover {
+  color: red !important;
 }
 
 .card-body {
@@ -166,18 +214,5 @@ export default {
   justify-content: space-between;
   font-size: 12px;
   color: #bbb;
-}
-
-.menu-icon {
-  cursor: pointer;
-  font-size: 18px;
-}
-
-footer {
-  text-align: center;
-  margin-top: 50px;
-  p {
-    color: #fff;
-  }
 }
 </style>
