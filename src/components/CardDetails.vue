@@ -51,6 +51,8 @@
     max-width: 500px;
     margin: 20px auto;
     position: relative;
+    color: black;
+    font-family: "Rubik";
   }
   
   button {
